@@ -3,8 +3,8 @@ import pandas as pd
 from sklearn import linear_model
 import matplotlib.pyplot as plt
 #################################
-train_file = "/Users/zuluags/Documents/Vanderbilt/v-work/project_10/train.csv"
-test_file = "/Users/zuluags/Documents/Vanderbilt/v-work/project_10/test.csv"
+train_file = "/path_to/train.csv"
+test_file = "/path_to/test.csv"
 table = pd.read_csv(train_file, header = 0)
 test_table = pd.read_csv(test_file, header = 0)
 #print(table)
