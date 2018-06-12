@@ -13,7 +13,7 @@ fullAtributes = ["Delectrons", "x_pos", "y_pos", "Electronegativity", "electron_
 XAtributes = ["Delectrons", "y_pos", "Electronegativity", "electron_afinity", "Num_electrons", "Calculated_radius"]
 ####################FUNCTIONS#################################################
 
-def load_housing_data(housing_path="/Users/zuluags/Documents/Vanderbilt/v-work/project_10"):
+def load_housing_data(housing_path="/Users/zuluags/Documents/Vanderbilt/v-work/project_10/Binding-energies-of-H-on-metal-atoms"):
     csv_path = os.path.join(housing_path, "data.csv")
     return pd.read_csv(csv_path)
 
@@ -73,13 +73,13 @@ def plotResults(predictions, y):
 
 pTable_raw = load_housing_data()                                              #Get the raw nada
 pTable_num = pTable_raw[fullAtributes]                                        #Get rid of the Element column
-train_X, train_y, test_X, test_y = splitTrainTest(pTable_num, 0.3, 80)            #split the set into train and test
+train_X, train_y, test_X, test_y = splitTrainTest(pTable_num, 0.3, 0)            #split the set into train and test
 train_X, test_X, train_y, test_y = scaleData(train_X, test_X, train_y, test_y)#scale the data and gets rid of the name of the columns
 
 ##################Now the regressors##########################################
-train_predictions, test_predictions = ramdomForestGo(train_X, train_y, test_X, XAtributes)
-#train_predictions, test_predictions = linearRegresGo(train_X, train_y, test_X, XAtributes)
+#train_predictions, test_predictions = ramdomForestGo(train_X, train_y, test_X, XAtributes)
+train_predictions, test_predictions = linearRegresGo(train_X, train_y, test_X, XAtributes)
 
 #plotResults(train_predictions, train_y)
-#plotResults(test_predictions, test_y)
+plotResults(test_predictions, test_y)
 
