@@ -23,4 +23,8 @@ predictions on the binding energy differ from the DFT calculated values
 While the data set is small, the mean absolute error is 0.08 eV. Which is
 very close to the level of noise of DFT calculations. 
 
+Once the model is trained, the code reads the file group1.csv, which is
+the data for the elements in the group1 (Li, Na, K, Rb, and Cs), and
+predicts the binding energy of H on each one of this atoms. The results
+are in eV.
 
