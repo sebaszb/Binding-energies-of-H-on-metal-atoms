@@ -96,7 +96,8 @@ def predictor(PR_df, PR_Reg, PR_scalerTrain):
 ##############################################################################
 
 
-pTable_raw = load_data("/Users/zuluags/Documents/Vanderbilt/v-work/project_10/Binding-energies-of-H-on-metal-atoms", "data.csv")                                              #Get the raw nada
+#pTable_raw = load_data("/Users/zuluags/Documents/Vanderbilt/v-work/project_10/Binding-energies-of-H-on-metal-atoms", "data.csv")                                              #Get the raw nada
+pTable_raw = load_data("./", "data.csv")                                              #Get the raw nada
 pTable_num = pTable_raw[fullAtributes]                                        #Get rid of the Element column
 train_X, train_y, test_X, test_y = splitTrainTest(pTable_num, 0.01, 19)         #split the set into train and test
 train_X, test_X, train_y, test_y, scalerTrain = scaleData(train_X, test_X, train_y, test_y, scaleData=False)#scale the data and gets rid of the name of the columns
@@ -112,6 +113,6 @@ train_predictions, test_predictions, Reg = linearRegresGo(train_X, train_y, test
 
 ###################Predictions################################################
 
-group1_raw = load_data("/Users/zuluags/Documents/Vanderbilt/v-work/project_10/Binding-energies-of-H-on-metal-atoms", "gorup1.csv")
+group1_raw = load_data("./", "group1.csv")
 results = predictor(group1_raw, Reg, scalerTrain)
 print(results)
